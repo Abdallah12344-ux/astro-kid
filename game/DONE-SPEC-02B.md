@@ -1,0 +1,9 @@
+# DONE — SPEC 02B
+
+Implemented SPEC 02B (Top-down 2D world replacing the side-view world, gravity, and jump):
+
+- **`src/core/constants.js`**: Replaced side-scrolling constants with top-down world constants (`WORLD_W = 7680`, `WORLD_H = 2880`, `ACCEL = 1800`, `FRICTION = 2200`, `PLAYER_SCALE = 0.8`, `PLAYER_START`, `BASE`, `DOOR`, `PLAYABLE`, `REGIONS`, `ROCK_NODES`, and `depthOf = (y) => y / 30`).
+- **`src/save.js`**: Replaced `jump` in `DEFAULT_KEYS` with `up: ['W', 'UP']` and `down: ['S', 'DOWN']`, migrating existing saves automatically.
+- **`src/entities/Player.js`**: Rewrote `Player` for 8-directional top-down movement with normalized diagonals, foot collider box (`50x30` at offset `(37, 135)`), zero gravity, `setBounds(x1, y1, x2, y2)` clamping, 4-direction animations (`walk_down`, `walk_up`, `walk_side`, `idle_down`), `facing` + `facingX`, timed footsteps (`280 ms` walk / `190 ms` run), `depthOf(y)` sorting, and feet shadow ellipse.
+- **`src/systems/Regions.js` & `src/scenes/LevelScene.js`**: Built the `7680x2880` top-down lunar world using deterministic `mulberry32(20261114)` ground patches (`ground_a` + 40 `ground_b` patches) and decals, `base_ext` outpost + dome collider + airlock door (`DOOR`), 18 `ROCK_NODES` with static colliders (`scene.rocks`), top/bottom cliff ridges, edge & region fog with `?` and 8x9 padlock markers, `RegionManager` toast + `+25` first-discovery bonus + `lunar_plains_entered`, `?debug` overlay, and `window.__astro` hooks (`regions`, `rocks`, `teleport(x, y)`).
+- **`src/systems/Interactions.js`, `src/entities/Nova.js`, `src/scenes/InteriorScene.js`**: Updated interactions to 2D Euclidean distance, NOVA follow offset `(player.x - player.facingX * 85, player.y - 150)` with `depthOf` sorting, and `InteriorScene` top-down floor band `(60, 572, 1220, 650)` with `depthOf(596)` station sorting and `+20 px` interaction ranges.

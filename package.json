@@ -1,0 +1,15 @@
+{
+  "name": "astro-kid-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Astro Kid — 2D Lunar Outpost Exploration & Resource Science Game",
+  "scripts": {
+    "install:game": "npm --prefix game install",
+    "dev": "npm --prefix game run dev",
+    "build": "npm --prefix game run build",
+    "preview": "npm --prefix game run preview"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

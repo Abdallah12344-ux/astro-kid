@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+game/node_modules/
+
+# Production build outputs
+dist/
+game/dist/
+
+# Vercel & deployment artifacts
+.vercel/
+
+# Environment & local secrets
+.env
+.env.*
+!.env.example
+
+# Logs & caches
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vite/
+game/.vite/
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+~$*
+
+# Raw offline design/intermediate folders (game/public already contains all required assets)
+/assets/
+/reference-assets/
+/presentation/*
+!/presentation/AstroKid_Level1_Gameplay_Full.mp4
+!/presentation/AstroKid_Presentation.mp4
