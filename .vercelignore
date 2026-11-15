@@ -1,9 +1,2 @@
-node_modules
-game/node_modules
-dist
-game/dist
-assets
-reference-assets
-presentation
-specs
-.git
+/presentation/
+/specs/
